@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<section class="about">
+    <div class="container">
+       <div class="row d_flex">
+            <div class="col-md-5">
+                <div class="titlepage">
+                    <h2>Buscar juegos</h2>
+                    <p>Te invitamos a pulsar en el logo de MSX para acceder a nuestro buscador de juegos. Disponemos de miles de juegos, ¡no te arrepentirás!</p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="about_img">
+                    <a href="/juegos"><img src="{{url_for('static', filename='img/msx.png')}}" alt="Logo de MSX"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

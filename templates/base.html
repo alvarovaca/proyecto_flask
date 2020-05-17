@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>{% block title %}{% endblock %}</title>
+      <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/responsive.css')}}">
+      <link rel="icon" href="{{url_for('static', filename='img/favicon.png')}}" type="image/png" />
+   </head>
+   <body class="main-layout inner_posituong contact_page">
+      <header>
+         <div class="header">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logo">
+                              <a href="/"><img src="{{url_for('static', filename='img/logo.png')}}" alt="Logo de la web" /></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                       <span class="navbar-toggler-icon"></span>
+                       </button>
+                       <div class="collapse navbar-collapse" id="navbarsExample04">
+                          <ul class="navbar-nav mr-auto">
+                             <li class="nav-item">
+                                <a class="nav-link" href="/">Inicio</a>
+                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="/juegos">Buscador</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </nav>
+                 </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      {% block content %}{% endblock %}
+      <footer>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                     <img class="logo1" src="{{url_for('static', filename='img/logo1.png')}}" alt="Logo de la web"/>
+                     <ul class="social_icon">
+                        <li><a href="https://es-es.facebook.com/pages/category/Education/IES-Gonzalo-Nazareno-105267186706673/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com/ies_gn?lang=es"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/alvarovaca26/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/whosalvr/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                     </ul>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                     <h3>Sobre nosotros</h3>
+                     <ul class="about_us">
+                        <li>Somos una empresa que<br>se dedica a la venta de<br>videojuegos desde hace<br>alrededor de 20 años.</li>
+                     </ul>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                     <h3>Contáctanos</h3>
+                     <ul class="conta">
+                        <li>Nuestros clientes son<br>nuestra prioridad en<br>todo momento, por ello<br>estamos operativos 24/7.</li>
+                     </ul>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                     <form class="bottom_form" action="http://www2.gonzalonazareno.org/josedom/resultado.php" method="POST">
+                        <h3>Noticias</h3>
+                        <input class="enter" placeholder="Introduce tu email" type="email" name="email" required>
+                        <button class="sub_btn">SUSCRIBETE</button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>© 2020 All Rights Reserved. Made by<a href="https://github.com/alvarovaca"> Álvaro Vaca</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/jquery-3.0.0.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/custom.js')}}"></script>
+   </body>
+</html>
