@@ -850,6 +850,18 @@ ul.btn li:last-child {
      font-weight: normal;
 }
 
+.main_form .contactus2 {
+     border: #fff solid 2px;
+     padding: 0px 15px;
+     margin-bottom: 25px;
+     width: 14%;
+     height: 45px;
+     background: transparent;
+     color: #fff;
+     font-size: 18px;
+     font-weight: normal;
+}
+
 .main_form .textarea {
      border: #fff solid 2px;
      padding: 0px 15px;
@@ -1115,6 +1127,30 @@ ul.social_icon li a:hover {
 .about .tg .tg-rkfb {
      background-color: #6665cd;
      color: #ffffff;
+     border-color: inherit;
+     text-align: center;
+     vertical-align: top
+}
+
+.about .tg .tg-rkfa {
+     background-color: #6665cd;
+     color: #FFE933;
+     border-color: inherit;
+     text-align: center;
+     vertical-align: top
+}
+
+.about .tg .tg-rkfc {
+     background-color: #6665cd;
+     color: rgb(255, 0, 0);
+     border-color: inherit;
+     text-align: center;
+     vertical-align: top
+}
+
+.about .tg .tg-rkfd {
+     background-color: #6665cd;
+     color: rgb(87, 241, 25);
      border-color: inherit;
      text-align: center;
      vertical-align: top

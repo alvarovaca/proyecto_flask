@@ -37,6 +37,9 @@
                                         {% endfor %}
                                     </select>
                                 </div>
+                                <div id="blanco">
+                                    Página: <input class="contactus2" type="number" name="page" value="{{page}}" min="1" required> 
+                                </div>
                             </div>
                             <div class="col-md-12">
                                 <button class="send_btn">Buscar</button>
@@ -47,35 +50,43 @@
             </div>
         </div>
     </section>
-    {% if juegos %}
+    {% if peticion %}
         <section class="about">
             <div class="container">
                 <div class="row d_flex">
-                    <div class="col-md-5">
+                    <div class="col-md-7">
                         <div class="titlepage">
                             <h2>Coincidencias</h2>
                         </div>
                         <table class="tg">
                             <tr>
-                                <th class="tg-hst0">Nombre</th>
-                                <th class="tg-hst0">Desarrollador</th>
-                                <th class="tg-hst0">Enlace</th>
+                                <th class="tg-hst0">Nombre de invocador</th>
+                                <th class="tg-hst0">Puntos de liga</th>
+                                <th class="tg-hst0">Partidas</th>
+                                <th class="tg-hst0">Victorias</th>
+                                <th class="tg-hst0">Derrotas</th>
+                                <th class="tg-hst0">% Victorias</th>
                             </tr>
-                        {% for i in juegos %}
-                            {% if (nombre == "" or (i.nombre|string).startswith(nombre)) and (categoria == "" or i.categoria == categoria) %}
-                                <tr>
-                                    <th class="tg-rkfb">{{i.nombre}}</th>
-                                    <th class="tg-rkfb">{{i.desarrollador}}</th>
-                                    <th class="tg-rkfb"><a href="/juego/{{i.id}}">Detalle</a></th>
-                                </tr>
-                            {% endif %}
+                        {% for i in peticion %}
+                            <tr>
+                                <th class="tg-rkfa"><a href="/invocador/{{i.summonerName}}">{{i.summonerName}}</a></th>
+                                <th class="tg-rkfb">{{i.leaguePoints}}</th>
+                                <th class="tg-rkfb">{{i.wins+i.losses}}</th>
+                                <th class="tg-rkfd">{{i.wins}}</th>
+                                <th class="tg-rkfc">{{i.losses}}</th>
+                                {% if ((i.wins/(i.wins+i.losses)*100)|round(2)) >= 50 %}
+                                    <th class="tg-rkfd">{{(i.wins/(i.wins+i.losses)*100)|round(2)}}%</th>
+                                {% else %}
+                                    <th class="tg-rkfc">{{(i.wins/(i.wins+i.losses)*100)|round(2)}}%</th>
+                                {% endif %}
+                            </tr>
                         {% endfor %}
                         </table>
                     </div>
                 </div>
             </div>
         </section>
-    {% elif nombre %}
+    {% elif fallo %}
         <section class="about">
             <div class="container">
                 <div class="row d_flex">
