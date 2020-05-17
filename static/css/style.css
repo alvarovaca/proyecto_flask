@@ -503,7 +503,7 @@ ul.btn li:last-child {
      padding: 0;
      text-transform: uppercase;
      border-bottom: #48ca95 solid 1px;
-     max-width: 400px;
+     max-width: 420px;
      margin: auto;
 }
 
@@ -1109,7 +1109,7 @@ ul.social_icon li a:hover {
      border-width: 1px;
      overflow: hidden;
      word-break: normal;
-     border-color: black;
+     border-color: grey;
 }
 
 .about .tg th {
@@ -1121,13 +1121,13 @@ ul.social_icon li a:hover {
      border-width: 2px;
      overflow: hidden;
      word-break: normal;
-     border-color: black;
+     border-color: grey;
 }
 
 .about .tg .tg-rkfb {
      background-color: #6665cd;
      color: #ffffff;
-     border-color: inherit;
+     border-color: grey;
      text-align: center;
      vertical-align: top
 }
@@ -1135,7 +1135,7 @@ ul.social_icon li a:hover {
 .about .tg .tg-rkfa {
      background-color: #6665cd;
      color: #FFE933;
-     border-color: inherit;
+     border-color: grey;
      text-align: center;
      vertical-align: top
 }
@@ -1143,7 +1143,7 @@ ul.social_icon li a:hover {
 .about .tg .tg-rkfc {
      background-color: #6665cd;
      color: rgb(255, 0, 0);
-     border-color: inherit;
+     border-color: grey;
      text-align: center;
      vertical-align: top
 }
@@ -1151,7 +1151,7 @@ ul.social_icon li a:hover {
 .about .tg .tg-rkfd {
      background-color: #6665cd;
      color: rgb(87, 241, 25);
-     border-color: inherit;
+     border-color: grey;
      text-align: center;
      vertical-align: top
 }
@@ -1160,7 +1160,7 @@ ul.social_icon li a:hover {
      font-weight: bold;
      background-color: #6434fc;
      color: #ffffff;
-     border-color: inherit;
+     border-color: grey;
      text-align: center;
      vertical-align: top
 }

@@ -5,6 +5,10 @@ app = Flask(__name__)
 app.config["key"]=os.environ["key"]
 app.config["URL_BASE"]="https://euw1.api.riotgames.com/lol/"
 
+@app.route('/',methods=["GET"])
+def inicio():
+    return render_template("inicio.html")
+
 @app.route('/status',methods=["GET"])
 def status():
     payload = {'api_key':app.config["key"]}
@@ -13,6 +17,10 @@ def status():
         return render_template("status.html", peticion=r.json())
     else:
         return render_template("status.html")
+
+@app.route('/invocador',methods=["GET"])
+def invocador():
+    return render_template("invocador.html")
 
 @app.route('/top',methods=["GET","POST"])
 def top():
@@ -29,10 +37,10 @@ def top():
         r=requests.get(app.config["URL_BASE"]+"league-exp/v4/entries/RANKED_SOLO_5x5/"+tier+"/"+division+"", params=payload)
         if r.status_code == 200 and r.json():
             return render_template("top.html", tiers=tiers, tierstr=tierstr, divisions=divisions, peticion=r.json(), tier=tierstr[tiers.index(tier)], division=division, page=page)
-        #url=r.url.replace("page="+str(payload["page"])+"","page="+str(payload["page"]+1)+"")
         else:
             return render_template("top.html", tiers=tiers, tierstr=tierstr, divisions=divisions, fallo=True, tier=tierstr[tiers.index(tier)], division=division, page=page)
 
+#url=r.url.replace("page="+str(payload["page"])+"","page="+str(payload["page"]+1)+"")
 #port=os.environ["PORT"]
 #app.run('0.0.0.0', int(port), debug=False)
 app.run(debug=True)
