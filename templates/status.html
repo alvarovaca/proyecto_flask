@@ -20,7 +20,7 @@
                                     <th class="tg-rkfb">{{elem.name}}</th>
                                     <th class="tg-rkfb">{{elem.status}}</th>
                                     {% if elem.incidents %}
-                                        <th class="tg-rkfb">{{elem.incidents[0].created_at}}</th>
+                                        <th class="tg-rkfb">{{elem.incidents[0].created_at[8:10]}}-{{elem.incidents[0].created_at[5:7]}}-{{elem.incidents[0].created_at[:4]}} {{elem.incidents[0].created_at[11:19]}}</th>
                                     {% else %}
                                         <th class="tg-rkfb">Desconocido.</th>
                                     {% endif %}

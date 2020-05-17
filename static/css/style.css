@@ -891,7 +891,9 @@ ul.btn li:last-child {
 }
 
 #blanco {
-     color: white
+     color: white;
+     font-size: 30px;
+     padding: 10px 0px;
 }
 
 /** end contact section **/
