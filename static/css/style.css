@@ -200,6 +200,15 @@ button {
      cursor: pointer;
 }
 
+#buttoncustom {
+     border: 0;
+     margin: 0;
+     padding: 0;
+     color: white;
+     background-color: #6434fc;
+     cursor: pointer;
+}
+
 .full {
      float: left;
      width: 100%;
@@ -1122,6 +1131,27 @@ ul.social_icon li a:hover {
      overflow: hidden;
      word-break: normal;
      border-color: grey;
+}
+
+.about .tg2 th {
+     font-family: Arial, sans-serif;
+     font-size: 18px;
+     font-weight: normal;
+     padding: 15px 72.5px;
+     border-style: solid;
+     border-width: 2px;
+     overflow: hidden;
+     word-break: normal;
+     border-color: grey;
+}
+
+.about .tg2 .tg-hst0 {
+     font-weight: bold;
+     background-color: #6434fc;
+     color: #ffffff;
+     border-color: grey;
+     text-align: center;
+     vertical-align: top
 }
 
 .about .tg .tg-rkfb {

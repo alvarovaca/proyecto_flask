@@ -32,7 +32,7 @@ def top():
     else:
         tier=request.form.get("tier")
         division=request.form.get("division")
-        page=request.form.get("page")
+        page=int(request.form.get("page"))
         payload = {'api_key':app.config["key"], 'page':page}
         r=requests.get(app.config["URL_BASE"]+"league-exp/v4/entries/RANKED_SOLO_5x5/"+tier+"/"+division+"", params=payload)
         if r.status_code == 200 and r.json():

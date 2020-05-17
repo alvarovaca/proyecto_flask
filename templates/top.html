@@ -82,6 +82,52 @@
                             </tr>
                         {% endfor %}
                         </table>
+                        <table class="tg2">
+                            <tr>
+                                {% if page != 1 %}
+                                    <th class="tg-hst0">
+                                        <form action="/top" method="POST">
+                                            <select name="tier" hidden>
+                                                {% for i in tierstr %}
+                                                    {% if i == tier %}
+                                                        <option value="{{tiers[tierstr.index(i)]}}" selected>{{i}}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                            <select name="division" hidden>
+                                                {% for i in divisions %}
+                                                    {% if i == division %}
+                                                        <option value="{{i}}" selected>{{i}}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                            <input type="number" name="page" value="{{page-1}}" hidden>
+                                            <button id="buttoncustom"><strong>Página anterior</strong></button>
+                                        </form>
+                                    </th>
+                                {% endif %}
+                                <th class="tg-hst0">
+                                    <form action="/top" method="POST">
+                                        <select name="tier" hidden>
+                                            {% for i in tierstr %}
+                                                {% if i == tier %}
+                                                    <option value="{{tiers[tierstr.index(i)]}}" selected>{{i}}</option>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </select>
+                                        <select name="division" hidden>
+                                            {% for i in divisions %}
+                                                {% if i == division %}
+                                                    <option value="{{i}}" selected>{{i}}</option>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </select>
+                                        <input type="number" name="page" value="{{page+1}}" hidden>
+                                        <button id="buttoncustom"><strong>Página siguiente</strong></button>
+                                    </form>
+                                </th>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
