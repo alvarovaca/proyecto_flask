@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Estado{% endblock %}
+{% block content %}
+    <section class="about">
+        <div class="container">
+            <div class="row d_flex">
+                <div class="col-md-5">
+                    <div class="titlepage">
+                        <h2>Estado actual</h2>
+                    </div>
+                    {% if peticion %}
+                        <table class="tg">
+                            <tr>
+                                <th class="tg-hst0">Servicio</th>
+                                <th class="tg-hst0">Estado</th>
+                                <th class="tg-hst0">Último fallo</th>
+                            </tr>
+                            {% for elem in peticion.services %}
+                                <tr>
+                                    <th class="tg-rkfb">{{elem.name}}</th>
+                                    <th class="tg-rkfb">{{elem.status}}</th>
+                                    {% if elem.incidents %}
+                                        <th class="tg-rkfb">{{elem.incidents[0].created_at}}</th>
+                                    {% else %}
+                                        <th class="tg-rkfb">Desconocido.</th>
+                                    {% endif %}
+                                    {% if elem.status == "online" %}
+                                        <th class="tg-rkfb"><img src="{{url_for('static', filename='img/tick.png')}}" alt="Tick verde"/></th>
+                                    {% else %}
+                                        <th class="tg-rkfb"><img src="{{url_for('static', filename='img/cross.png')}}" alt="Cruz roja"/></th>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        <h3>No tenemos información sobre el estado actual.</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
