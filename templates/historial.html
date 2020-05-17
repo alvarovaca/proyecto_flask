@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{nombre}}{% endblock %}
+{% block content %}
+    {% if peticion %}
+        <section class="about">
+            <div class="container">
+                <div class="row d_flex">
+                    <div class="col-md-7">
+                        <div class="titlepage">
+                            <h2>{{nombre}}</h2>
+                        </div>
+                        <table class="tg">
+                            <tr>
+                                <th class="tg-hst0">Identificador</th>
+                                <th class="tg-hst0">Campeón</th>
+                                <th class="tg-hst0">Temporada</th>
+                                <th class="tg-hst0">Posición</th>
+                            </tr>
+                        {% for i in peticion.matches %}
+                            <tr>
+                                <th class="tg-rkfb">{{i.gameId}}</th>
+                                {% for elem in champs.data.values() %}
+                                    {% if i.champion == elem.key %}
+                                        <th class="tg-rkfb">{{elem.name}}</th>
+                                    {% endif %}
+                                {% endfor %}
+                                <th class="tg-rkfb">{{i.season}}</th>
+                                {% if i.lane == "NONE" %}
+                                    <th class="tg-rkfb">Desconocida.</th>
+                                {% else %}
+                                    <th class="tg-rkfb">{{i.lane.capitalize()}}</th>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% elif fallo %}
+        <section class="about">
+            <div class="container">
+                <div class="row d_flex">
+                    <div class="col-md-5">
+                        <div class="titlepage">
+                            <h2>Sin coincidencias.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
