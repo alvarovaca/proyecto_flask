@@ -43,7 +43,7 @@ def historial(summoner):
     if app.config["mantenimiento"] != "1":
         payload = {'api_key':app.config["key"]}
         r=requests.get(app.config["URL_BASE"]+"summoner/v4/summoners/by-name/"+summoner+"", params=payload)
-        champs=requests.get("http://ddragon.leagueoflegends.com/cdn/10.9.1/data/en_US/champion.json")
+        champs=requests.get("http://ddragon.leagueoflegends.com/cdn/10.10.3208608/data/en_US/champion.json")
         if r.status_code == 200:
             accountid=r.json()["accountId"]
             history=requests.get(app.config["URL_BASE"]+"match/v4/matchlists/by-account/"+accountid+"", params=payload)
@@ -59,12 +59,13 @@ def partida(summoner):
     if app.config["mantenimiento"] != "1":
         payload = {'api_key':app.config["key"]}
         r=requests.get(app.config["URL_BASE"]+"summoner/v4/summoners/by-name/"+summoner+"", params=payload)
-        champs=requests.get("http://ddragon.leagueoflegends.com/cdn/10.9.1/data/en_US/champion.json")
+        champs=requests.get("http://ddragon.leagueoflegends.com/cdn/10.10.3208608/data/en_US/champion.json")
+        spells=requests.get("http://ddragon.leagueoflegends.com/cdn/10.10.3208608/data/en_US/summoner.json")
         if r.status_code == 200:
-            accountid=r.json()["accountId"]
+            accountid=r.json()["id"]
             partida=requests.get(app.config["URL_BASE"]+"spectator/v4/active-games/by-summoner/"+accountid+"", params=payload)
             if partida.status_code == 200:
-                return render_template("partida.html", peticion=partida.json(), nombre=summoner, champs=champs.json(), icono=r.json()["profileIconId"], nivel=r.json()["summonerLevel"])
+                return render_template("partida.html", peticion=partida.json(), nombre=summoner, champs=champs.json(), spells=spells.json(), icono=r.json()["profileIconId"])
         else:
             return render_template("partida.html", nombre=summoner, fallo=True)
     else:
