@@ -159,6 +159,11 @@ img {
      outline: 0;
 }
 
+#imagen {
+     max-width: 8%;
+     height: auto;
+}
+
 .btn-custom {
      margin-top: 20px;
      background-color: transparent !important;
@@ -915,6 +920,12 @@ ul.btn li:last-child {
      color: white;
      font-size: 30px;
      padding: 10px 0px;
+}
+
+#radio {
+     color: white;
+     font-size: 20px;
+     padding: 13px 138px;
 }
 
 /** end contact section **/
