@@ -7,7 +7,7 @@
                 <div class="row d_flex">
                     <div class="col-md-8">
                         <div class="titlepage">
-                            <h2>{{nombre}} <img id="imagen1" src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/profileicon/{{icono}}.png" alt="Icono del invocador"/></h2>
+                            <h2>{{nombre}} <img id="imagen1" src="{{config.URL_BASE_2}}img/profileicon/{{icono}}.png" alt="Icono del invocador"/></h2>
                         </div>
                         <h2 id="azul"><strong>Equipo azul</strong></h2>
                         <table class="tg">
@@ -22,7 +22,7 @@
                             {% if i.teamId == 100 %}
                                 <tr>
                                     <th class="tg-rkfb"><a href="/invocador/historial/{{i.summonerName}}">{{i.summonerName}}</a></th>
-                                    <th class="tg-rkfb"><img id="imagen" src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/profileicon/{{i.profileIconId}}.png" alt="Icono del invocador"/></th>
+                                    <th class="tg-rkfb"><img id="imagen" src="{{config.URL_BASE_2}}img/profileicon/{{i.profileIconId}}.png" alt="Icono del invocador"/></th>
                                     {% for elem in champs.data.values() %}
                                         {% if (i.championId|string) == elem.key %}
                                             <th class="tg-rkfb">{{elem.name}}</th>
@@ -55,7 +55,7 @@
                             {% if i.teamId == 200 %}
                                 <tr>
                                     <th class="tg-rkfb"><a href="/invocador/historial/{{i.summonerName}}">{{i.summonerName}}</a></th>
-                                    <th class="tg-rkfb"><img id="imagen" src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/profileicon/{{i.profileIconId}}.png" alt="Icono del invocador"/></th>
+                                    <th class="tg-rkfb"><img id="imagen" src="{{config.URL_BASE_2}}img/profileicon/{{i.profileIconId}}.png" alt="Icono del invocador"/></th>
                                     {% for elem in champs.data.values() %}
                                         {% if (i.championId|string) == elem.key %}
                                             <th class="tg-rkfb">{{elem.name}}</th>
