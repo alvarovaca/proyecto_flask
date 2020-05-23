@@ -164,6 +164,28 @@ img {
      height: auto;
 }
 
+#imagen1 {
+     max-width: 7%;
+     height: auto;
+}
+
+#azul {
+     color: rgb(0, 174, 255);
+     margin-bottom: 10px;
+}
+
+#rojo {
+     color: rgb(255, 0, 0);
+     margin-top: 15px;
+     margin-bottom: 10px;
+}
+
+#verde {
+     color: rgb(0, 255, 98);
+     margin-top: 15px;
+     margin-bottom: 10px;
+}
+
 .btn-custom {
      margin-top: 20px;
      background-color: transparent !important;
@@ -1171,6 +1193,40 @@ ul.social_icon li a:hover {
      border-color: grey;
      text-align: center;
      vertical-align: top
+}
+
+.about .tg .tg-rkfy {
+     background-color: rgb(0, 174, 255);
+     color: #ffffff;
+     border-color: grey;
+     text-align: center;
+     vertical-align: top;
+     font-family: Arial, sans-serif;
+     font-size: 14px;
+     font-weight: normal;
+     padding: 10px 13.5px;
+     border-style: solid;
+     border-width: 2px;
+     overflow: hidden;
+     word-break: normal;
+     border-color: grey;
+}
+
+.about .tg .tg-rkfl {
+     background-color: rgb(255, 0, 0);
+     color: #ffffff;
+     border-color: grey;
+     text-align: center;
+     vertical-align: top;
+     font-family: Arial, sans-serif;
+     font-size: 14px;
+     font-weight: normal;
+     padding: 10px 13.5px;
+     border-style: solid;
+     border-width: 2px;
+     overflow: hidden;
+     word-break: normal;
+     border-color: grey;
 }
 
 .about .tg .tg-rkfa {

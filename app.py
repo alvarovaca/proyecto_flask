@@ -49,6 +49,8 @@ def historial(summoner):
             history=requests.get(app.config["URL_BASE"]+"match/v4/matchlists/by-account/"+accountid+"", params=payload)
             if history.status_code == 200:
                 return render_template("historial.html", peticion=history.json(), nombre=summoner, champs=champs.json(), icono=r.json()["profileIconId"], nivel=r.json()["summonerLevel"])
+            else:
+                return render_template("historial.html", nombre=summoner, fallo=True)
         else:
             return render_template("historial.html", nombre=summoner, fallo=True)
     else:
@@ -66,6 +68,8 @@ def partida(summoner):
             partida=requests.get(app.config["URL_BASE"]+"spectator/v4/active-games/by-summoner/"+accountid+"", params=payload)
             if partida.status_code == 200:
                 return render_template("partida.html", peticion=partida.json(), nombre=summoner, champs=champs.json(), spells=spells.json(), icono=r.json()["profileIconId"])
+            else:
+                return render_template("partida.html", nombre=summoner, fallo=True)
         else:
             return render_template("partida.html", nombre=summoner, fallo=True)
     else:

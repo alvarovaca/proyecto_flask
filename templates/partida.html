@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}{{nombre}}{% endblock %}
+{% block content %}
+    {% if peticion %}
+        <section class="about">
+            <div class="container">
+                <div class="row d_flex">
+                    <div class="col-md-8">
+                        <div class="titlepage">
+                            <h2>{{nombre}} <img id="imagen1" src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/profileicon/{{icono}}.png" alt="Icono del invocador"/></h2>
+                        </div>
+                        <h2 id="azul"><strong>Equipo azul</strong></h2>
+                        <table class="tg">
+                            <tr>
+                                <th class="tg-hst0">Nombre de invocador</th>
+                                <th class="tg-hst0">Icono</th>
+                                <th class="tg-hst0">Campeón</th>
+                                <th class="tg-hst0">Spell 1</th>
+                                <th class="tg-hst0">Spell 2</th>
+                            </tr>
+                        {% for i in peticion.participants %}
+                            {% if i.teamId == 100 %}
+                                <tr>
+                                    <th class="tg-rkfb"><a href="/invocador/historial/{{i.summonerName}}">{{i.summonerName}}</a></th>
+                                    <th class="tg-rkfb"><img id="imagen" src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/profileicon/{{i.profileIconId}}.png" alt="Icono del invocador"/></th>
+                                    {% for elem in champs.data.values() %}
+                                        {% if (i.championId|string) == elem.key %}
+                                            <th class="tg-rkfb">{{elem.name}}</th>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% for elem in spells.data.values() %}
+                                        {% if (i.spell1Id|string) == elem.key %}
+                                            <th class="tg-rkfb">{{elem.name}}</th>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% for elem in spells.data.values() %}
+                                        {% if (i.spell2Id|string) == elem.key %}
+                                            <th class="tg-rkfb">{{elem.name}}</th>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </table>
+                        <h2 id="rojo"><strong>Equipo rojo</strong></h2>
+                        <table class="tg">
+                            <tr>
+                                <th class="tg-hst0">Nombre de invocador</th>
+                                <th class="tg-hst0">Icono</th>
+                                <th class="tg-hst0">Campeón</th>
+                                <th class="tg-hst0">Spell 1</th>
+                                <th class="tg-hst0">Spell 2</th>
+                            </tr>
+                        {% for i in peticion.participants %}
+                            {% if i.teamId == 200 %}
+                                <tr>
+                                    <th class="tg-rkfb"><a href="/invocador/historial/{{i.summonerName}}">{{i.summonerName}}</a></th>
+                                    <th class="tg-rkfb"><img id="imagen" src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/profileicon/{{i.profileIconId}}.png" alt="Icono del invocador"/></th>
+                                    {% for elem in champs.data.values() %}
+                                        {% if (i.championId|string) == elem.key %}
+                                            <th class="tg-rkfb">{{elem.name}}</th>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% for elem in spells.data.values() %}
+                                        {% if (i.spell1Id|string) == elem.key %}
+                                            <th class="tg-rkfb">{{elem.name}}</th>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% for elem in spells.data.values() %}
+                                        {% if (i.spell2Id|string) == elem.key %}
+                                            <th class="tg-rkfb">{{elem.name}}</th>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </table>
+                        <h2 id="verde"><strong>Bans</strong></h2>
+                        <table class="tg">
+                        <tr>
+                        {% for i in peticion.bannedChampions %}
+                            {% if i.teamId == 100 %}
+                                {% for elem in champs.data.values() %}
+                                    {% if (i.championId|string) == elem.key %}
+                                        <th class="tg-rkfy">{{elem.name}}</th>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                        {% for i in peticion.bannedChampions %}
+                            {% if i.teamId == 200 %}
+                                {% for elem in champs.data.values() %}
+                                    {% if (i.championId|string) == elem.key %}
+                                        <th class="tg-rkfl">{{elem.name}}</th>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                        </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% elif fallo %}
+        <section class="about">
+            <div class="container">
+                <div class="row d_flex">
+                    <div class="col-md-5">
+                        <div class="titlepage">
+                            <h2>Sin coincidencias.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
