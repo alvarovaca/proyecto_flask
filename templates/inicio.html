@@ -4,15 +4,13 @@
 <section class="about">
     <div class="container">
        <div class="row d_flex">
-            <div class="col-md-5">
+            <div class="col-md-11">
                 <div class="titlepage">
-                    <h2>Buscar juegos</h2>
-                    <p>Te invitamos a pulsar en el logo de MSX para acceder a nuestro buscador de juegos. Disponemos de miles de juegos, ¡no te arrepentirás!</p>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="about_img">
-                    <a href="/juegos"><img src="{{url_for('static', filename='img/msx.png')}}" alt="Logo de MSX"/></a>
+                    <h2>Introducción</h2>
+                    <p></p>
+                    <p id="inicio"><strong><a href="/status">Estado:</a></strong> Muestra el estado actual de los servicios del videojuego.</p>
+                    <p id="inicio"><strong><a href="/invocador">Invocador:</a></strong> Pide el nombre de un invocador y te muestra el historial de partidas o la partida actual (en caso de haberla).</p>
+                    <p id="inicio"><strong><a href="/top">Top:</a></strong> Permite filtrar para ver los mejores jugadores del servidor. Cuenta con botones para navegar entre las páginas.</p>
                 </div>
             </div>
         </div>
