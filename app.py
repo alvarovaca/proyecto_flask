@@ -44,16 +44,18 @@ def historial(summoner):
     if app.config["mantenimiento"] != "1":
         payload = {'api_key':app.config["key"]}
         r=requests.get(app.config["URL_BASE"]+"summoner/v4/summoners/by-name/"+summoner+"", params=payload)
-        champs=requests.get(app.config["URL_BASE_2"]+"data/en_US/champion.json")
         if r.status_code == 200:
-            accountid=r.json()["accountId"]
-            history=requests.get(app.config["URL_BASE"]+"match/v4/matchlists/by-account/"+accountid+"", params=payload)
+            accountid1=r.json()["accountId"]
+            history=requests.get(app.config["URL_BASE"]+"match/v4/matchlists/by-account/"+accountid1+"", params=payload)
+            accountid2=r.json()["id"]
+            ingame=requests.get(app.config["URL_BASE"]+"spectator/v4/active-games/by-summoner/"+accountid2+"", params=payload)
             if history.status_code == 200:
-                return render_template("historial.html", peticion=history.json(), nombre=summoner, champs=champs.json(), icono=r.json()["profileIconId"], nivel=r.json()["summonerLevel"])
+                champs=requests.get(app.config["URL_BASE_2"]+"data/en_US/champion.json")
+                return render_template("historial.html", peticion=history.json(), nombre=summoner, champs=champs.json(), icono=r.json()["profileIconId"], nivel=r.json()["summonerLevel"], ingame=ingame.status_code)
             else:
-                return render_template("historial.html", nombre=summoner, fallo=True)
+                return render_template("historial.html", nombre=summoner, fallo2=True)
         else:
-            return render_template("historial.html", nombre=summoner, fallo=True)
+            return render_template("historial.html", nombre=summoner, fallo1=True)
     else:
         return render_template("mantenimiento.html")
 
@@ -62,17 +64,17 @@ def partida(summoner):
     if app.config["mantenimiento"] != "1":
         payload = {'api_key':app.config["key"]}
         r=requests.get(app.config["URL_BASE"]+"summoner/v4/summoners/by-name/"+summoner+"", params=payload)
-        champs=requests.get(app.config["URL_BASE_2"]+"data/en_US/champion.json")
-        spells=requests.get(app.config["URL_BASE_2"]+"data/en_US/summoner.json")
         if r.status_code == 200:
             accountid=r.json()["id"]
             partida=requests.get(app.config["URL_BASE"]+"spectator/v4/active-games/by-summoner/"+accountid+"", params=payload)
             if partida.status_code == 200:
+                champs=requests.get(app.config["URL_BASE_2"]+"data/en_US/champion.json")
+                spells=requests.get(app.config["URL_BASE_2"]+"data/en_US/summoner.json")
                 return render_template("partida.html", peticion=partida.json(), nombre=summoner, champs=champs.json(), spells=spells.json(), icono=r.json()["profileIconId"])
             else:
-                return render_template("partida.html", nombre=summoner, fallo=True)
+                return render_template("partida.html", nombre=summoner, fallo2=True)
         else:
-            return render_template("partida.html", nombre=summoner, fallo=True)
+            return render_template("partida.html", nombre=summoner, fallo1=True)
     else:
         return render_template("mantenimiento.html")
 
@@ -97,6 +99,5 @@ def top():
     else:
         return render_template("mantenimiento.html")
 
-#port=os.environ["PORT"]
-#app.run('0.0.0.0', int(port), debug=False)
-app.run(debug=True)
+port=os.environ["PORT"]
+app.run('0.0.0.0', int(port), debug=False)

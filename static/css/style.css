@@ -177,6 +177,12 @@ img {
      height: auto;
 }
 
+#ingame {
+     color: rgb(218, 201, 47);
+     text-decoration: none!important;
+     opacity: 1
+}
+
 #azul {
      color: rgb(0, 174, 255);
      margin-bottom: 10px;

@@ -9,6 +9,9 @@
                         <div class="titlepage">
                             <h2>{{nombre}} <img id="imagen" src="{{config.URL_BASE_2}}img/profileicon/{{icono}}.png" alt="Icono del invocador"/></h2>
                         </div>
+                        {% if ingame == 200 %}
+                            <h2><strong><a id="ingame" href="/invocador/partida/{{nombre}}">El invocador está jugando en este momento.</a></strong></h2>
+                        {% endif %}
                         <h2>Nivel: {{nivel}}</h2>
                         <table class="tg">
                             <tr>
@@ -38,13 +41,25 @@
                 </div>
             </div>
         </section>
-    {% elif fallo %}
+    {% elif fallo1 %}
         <section class="about">
             <div class="container">
                 <div class="row d_flex">
-                    <div class="col-md-5">
+                    <div class="col-md-7">
                         <div class="titlepage">
-                            <h2>Sin coincidencias.</h2>
+                            <h2>Invocador no encontrado.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% elif fallo2 %}
+        <section class="about">
+            <div class="container">
+                <div class="row d_flex">
+                    <div class="col-md-8">
+                        <div class="titlepage">
+                            <h2>El invocador no tiene historial.</h2>
                         </div>
                     </div>
                 </div>
