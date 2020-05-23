@@ -57,7 +57,7 @@ def historial(summoner):
     else:
         return render_template("mantenimiento.html")
 
-@app.route('/invocador/game/<summoner>',methods=["GET"])
+@app.route('/invocador/partida/<summoner>',methods=["GET"])
 def partida(summoner):
     if app.config["mantenimiento"] != "1":
         payload = {'api_key':app.config["key"]}

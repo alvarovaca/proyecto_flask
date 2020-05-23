@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block title %}Estado{% endblock %}
 {% block content %}
-    <section class="about">
-        <div class="container">
-            <div class="row d_flex">
-                <div class="col-md-5">
-                    <div class="titlepage">
-                        <h2>Estado actual</h2>
-                    </div>
-                    {% if peticion %}
+    {% if peticion %}
+        <section class="about">
+            <div class="container">
+                <div class="row d_flex">
+                    <div class="col-md-5">
+                        <div class="titlepage">
+                            <h2>Estado actual</h2>
+                        </div>
                         <table class="tg">
                             <tr>
                                 <th class="tg-hst0">Servicio</th>
@@ -32,11 +32,21 @@
                                 </tr>
                             {% endfor %}
                         </table>
-                    {% else %}
-                        <h3>No tenemos información sobre el estado actual.</h3>
-                    {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    {% else %}
+        <section class="about">
+            <div class="container">
+                <div class="row d_flex">
+                    <div class="col-md-5">
+                        <div class="titlepage">
+                            <h2>Sin información.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
 {% endblock %}
