@@ -12,4 +12,4 @@
 
 * **1:** Utilizar más de una API. Combinar en vuestra aplicación información de varias APIs o utilizar una API y más información que tengáis en algún fichero XML o JSON. ✔
 * **2:** Añadir más elementos de los que se indican en el punto anterior: añadir más páginas, añadir más formularios, mostrar la información de alguna otra manera... ✔
-* **3:** Utilizar alguna petición POST que permita cambiar el estado de la aplicación web y modifique su información. ✘
+* **3:** Utilizar alguna petición POST que permita cambiar el estado de la aplicación web y modifique su información. ❌
